@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import "./Todo.css";
 
 interface TodoItem {
 	text: string;
@@ -18,8 +19,8 @@ function makeid(length: number): string {
 	return result;
 }
 function App() {
-	const [todo, setTodo] = useState<TodoItem>({ text: "", id: "" });
-	const [todoItems, setTodoItems] = useState<TodoItem[]>([todo]);
+	const [todo, setTodo] = useState<TodoItem>();
+	const [todoItems, setTodoItems] = useState<TodoItem[]>();
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setTodo({ text: e.target.value, id: makeid(12) });
@@ -27,7 +28,7 @@ function App() {
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		if (todo.text.length > 0) {
+		if (todo && todo.text.length > 0) {
 			setTodoItems((todoItems) => [...(todoItems || []), todo]);
 			setTodo({ text: "", id: "" });
 		}
@@ -40,7 +41,7 @@ function App() {
 				<input
 					type="text"
 					placeholder="Bring laundary.."
-					value={todo.text}
+					value={todo && todo.text}
 					className="todo-input"
 					onChange={handleChange}
 				/>
@@ -48,15 +49,20 @@ function App() {
 					Add <span>TODO</span>
 				</button>
 			</form>
-			<div className="card">
-				{todoItems?.length > 0 && (
-					<div className="card">
+
+			{todoItems && todoItems?.length > 0 && (
+				<div className="card">
+					<div className="todo-list">
 						{todoItems.map((todo) => (
-							<p key={todo.id}>{todo.text}</p>
+							<ul>
+								<li key={todo.id} className="item">
+									<p>{todo.text}</p>
+								</li>
+							</ul>
 						))}
 					</div>
-				)}
-			</div>
+				</div>
+			)}
 		</div>
 	);
 }

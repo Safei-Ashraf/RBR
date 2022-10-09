@@ -1,0 +1,23 @@
+.todo-list {
+	border: 1px solid #ccc;
+	box-shadow: 5px 5px 15px rgb(46, 45, 45);
+	width: 60%;
+	margin: auto auto;
+}
+.todo-list .item {
+	width: 90%;
+	padding: 0.5rem;
+	border: 1px solid #696969;
+	border-radius: 12px;
+	margin: 1rem auto;
+	box-shadow: 2px 1px 1px rgb(187, 178, 178);
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+}
+.todo-list .item:hover {
+	border: 1px solid #2e9bce;
+	box-shadow: 2px 1px 1px #2e9bce;
+}
