@@ -1,0 +1,4 @@
+
+1- input for the user to add todo item ( manage with state)
+2- button to add item (text in input field) (handle click event on button to submit the form /alter state)
+3- a list where we display the added items.
