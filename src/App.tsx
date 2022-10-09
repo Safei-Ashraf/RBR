@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { _TodoItem, TodoItem } from "./components/TodoItem/TodoItem";
 import "./App.css";
+import { TodoForm } from "./components/TodoForm/TodoForm";
 
 function makeid(length: number): string {
 	var result = "";
@@ -33,19 +34,11 @@ function App() {
 	return (
 		<div className="App">
 			<h1>Fancy💥App</h1>
-			<form onSubmit={handleSubmit}>
-				<input
-					type="text"
-					placeholder="Bring laundary.."
-					value={todo && todo.text}
-					className="todo-input"
-					onChange={handleChange}
-				/>
-				<button type="submit">
-					Add <span>TODO</span>
-				</button>
-			</form>
-
+			<TodoForm
+				handleChange={handleChange}
+				handleSubmit={handleSubmit}
+				todo={todo}
+			/>
 			{todoItems && todoItems?.length > 0 && (
 				<div className="card">
 					<div className="todo-list">
