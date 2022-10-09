@@ -1,5 +1,5 @@
-
 .todo-list .item {
+	position: relative;
 	width: 90%;
 	padding: 0.1rem;
 	border: 1px solid #696969;
@@ -7,16 +7,47 @@
 	margin: 1rem auto;
 	box-shadow: 2px 1px 1px rgb(187, 178, 178);
 	transition: all 0.5s;
-	-webkit-transition: all 0.5s;
-	-moz-transition: all 0.5s;
-	-ms-transition: all 0.5s;
-	-o-transition: all 0.5s;
 	-webkit-border-radius: 12px;
 	-moz-border-radius: 12px;
 	-ms-border-radius: 12px;
 	-o-border-radius: 12px;
+	text-align: left;
+	padding-left: 1rem;
+	background-color: #242424;
 }
-.todo-list .item:hover {
+.item:hover {
 	border: 1px solid #2e9bce;
 	box-shadow: 2px 1px 1px #2e9bce;
+	width: 100%;
+	transform: scale(1.5);
+	-webkit-transform: scale(1.5);
+	-moz-transform: scale(1.5);
+	-ms-transform: scale(1.5);
+	-o-transform: scale(1.5);
 }
+.item:hover p {
+	overflow: visible;
+}
+.item p {
+	max-width: 70%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+/* .time {
+	position: absolute;
+	top: 4px;
+	right: 12px;
+}
+.date {
+	position: absolute;
+	bottom: 4px;
+	right: 12px;
+}
+.date,
+.time {
+	font-size: 13px;
+	font-weight: 300;
+	color: #696969;
+	text-shadow: 0px 0px 2px #2e9bce;
+} */

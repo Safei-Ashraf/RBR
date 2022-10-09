@@ -16,17 +16,24 @@ function makeid(length: number): string {
 	return result;
 }
 function App() {
-	const [todo, setTodo] = useState<_TodoItem>({ text: "", id: makeid(12) });
+	const [todo, setTodo] = useState<_TodoItem>({
+		text: "",
+		id: makeid(12),
+	});
 	const [todoItems, setTodoItems] = useState<_TodoItem[]>();
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setTodo({ text: e.target.value, id: makeid(12) });
+		setTodo({
+			text: e.target.value,
+			id: makeid(12),
+		});
 	};
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		if (todo && todo.text.length > 0) {
-			setTodoItems((todoItems) => [...(todoItems || []), todo]);
+			setTodoItems((todoItems) => [...(todoItems || []), { ...todo }]);
+			console.log(todo);
 			setTodo({ text: "", id: "" });
 		}
 	};
@@ -34,6 +41,7 @@ function App() {
 	return (
 		<div className="App">
 			<h1>Fancy💥App</h1>
+
 			<TodoForm
 				handleChange={handleChange}
 				handleSubmit={handleSubmit}
