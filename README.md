@@ -18,7 +18,9 @@ My other repos include lots of `React` and more tools that I have discovered and
 -   Create Todo Item
 -   View created items in a list
 -   Add or remove items
-    > #### Phase 2
+
+> #### Phase 2
+
 -   Add due date for each todo item. (do validation, should be in the future)
 -   Order todos list via date or alphabetical (one has to be default sort)
 -   Order todos list via date or alphabetical (one has to be default sort)
