@@ -1,5 +1,6 @@
 import React from "react";
 import { _TodoItem } from "../TodoItem/TodoItem";
+import "./TodoForm.css";
 
 interface _TodoForm {
 	todo: _TodoItem;
