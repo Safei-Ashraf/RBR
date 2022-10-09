@@ -19,7 +19,7 @@ function makeid(length: number): string {
 	return result;
 }
 function App() {
-	const [todo, setTodo] = useState<TodoItem>();
+	const [todo, setTodo] = useState<TodoItem>({ text: "", id: makeid(12) });
 	const [todoItems, setTodoItems] = useState<TodoItem[]>();
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -53,13 +53,13 @@ function App() {
 			{todoItems && todoItems?.length > 0 && (
 				<div className="card">
 					<div className="todo-list">
-						{todoItems.map((todo) => (
-							<ul>
+						<ul>
+							{todoItems.map((todo) => (
 								<li key={todo.id} className="item">
 									<p>{todo.text}</p>
 								</li>
-							</ul>
-						))}
+							))}
+						</ul>
 					</div>
 				</div>
 			)}
