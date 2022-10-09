@@ -1,12 +1,19 @@
 .todo-list {
-	border: 1px solid #ccc;
+	border-image: linear-gradient(#a7a49f, #30b8c2) 30;
+	border-width: 4px;
+	border-style: solid;
 	box-shadow: 5px 5px 15px rgb(46, 45, 45);
 	width: 60%;
 	margin: auto auto;
+	border-radius: 12px;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	-ms-border-radius: 12px;
+	-o-border-radius: 12px;
 }
 .todo-list .item {
 	width: 90%;
-	padding: 0.5rem;
+	padding: 0.1rem;
 	border: 1px solid #696969;
 	border-radius: 12px;
 	margin: 1rem auto;
@@ -16,6 +23,10 @@
 	-moz-transition: all 0.5s;
 	-ms-transition: all 0.5s;
 	-o-transition: all 0.5s;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	-ms-border-radius: 12px;
+	-o-border-radius: 12px;
 }
 .todo-list .item:hover {
 	border: 1px solid #2e9bce;
