@@ -1,11 +1,7 @@
 import { useState } from "react";
+import { _TodoItem, TodoItem } from "./components/TodoItem/TodoItem";
 import "./App.css";
-import "./Todo.css";
 
-interface TodoItem {
-	text: string;
-	id: string;
-}
 function makeid(length: number): string {
 	var result = "";
 	var characters =
@@ -19,8 +15,8 @@ function makeid(length: number): string {
 	return result;
 }
 function App() {
-	const [todo, setTodo] = useState<TodoItem>({ text: "", id: makeid(12) });
-	const [todoItems, setTodoItems] = useState<TodoItem[]>();
+	const [todo, setTodo] = useState<_TodoItem>({ text: "", id: makeid(12) });
+	const [todoItems, setTodoItems] = useState<_TodoItem[]>();
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setTodo({ text: e.target.value, id: makeid(12) });
@@ -54,10 +50,12 @@ function App() {
 				<div className="card">
 					<div className="todo-list">
 						<ul>
-							{todoItems.map((todo) => (
-								<li key={todo.id} className="item">
-									<p>{todo.text}</p>
-								</li>
+							{todoItems.map(({ id, text }) => (
+								<TodoItem
+									id={id}
+									text={text}
+									key={makeid(12)}
+								/>
 							))}
 						</ul>
 					</div>
