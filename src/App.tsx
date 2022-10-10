@@ -19,6 +19,7 @@ function App() {
 	const [todo, setTodo] = useState<_TodoItem>({
 		text: "",
 		id: "",
+		handleDelete: () => void 0,
 	});
 	const [todoItems, setTodoItems] = useState<_TodoItem[]>();
 
@@ -33,7 +34,7 @@ function App() {
 				...(todoItems || []),
 				{ ...todo, id: makeid(12) },
 			]);
-			setTodo({ text: "", id: "" });
+			setTodo({ text: "", id: "", handleDelete: () => void 0 });
 		}
 	};
 	const handleDelete = (id: string) => {
