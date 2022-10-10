@@ -18,12 +18,6 @@
 .item:hover {
 	border: 1px solid #2e9bce;
 	box-shadow: 2px 1px 1px #2e9bce;
-	width: 100%;
-	transform: scale(1.5);
-	-webkit-transform: scale(1.5);
-	-moz-transform: scale(1.5);
-	-ms-transform: scale(1.5);
-	-o-transform: scale(1.5);
 }
 .item:hover p {
 	overflow: visible;
@@ -34,20 +28,22 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
-/* .time {
+.remove {
+	font-size: 12px;
 	position: absolute;
-	top: 4px;
-	right: 12px;
+	top: 6px;
+	right: 16px;
+	transition: all 0.5;
+	-webkit-transition: all 0.5;
+	-moz-transition: all 0.5;
+	-ms-transition: all 0.5;
+	-o-transition: all 0.5;
+	cursor: pointer;
 }
-.date {
-	position: absolute;
-	bottom: 4px;
-	right: 12px;
+.item:hover .remove {
+	transform: scale(1.5);
+	-webkit-transform: scale(1.5);
+	-moz-transform: scale(1.5);
+	-ms-transform: scale(1.5);
+	-o-transform: scale(1.5);
 }
-.date,
-.time {
-	font-size: 13px;
-	font-weight: 300;
-	color: #696969;
-	text-shadow: 0px 0px 2px #2e9bce;
-} */

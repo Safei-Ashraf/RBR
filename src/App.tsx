@@ -18,24 +18,27 @@ function makeid(length: number): string {
 function App() {
 	const [todo, setTodo] = useState<_TodoItem>({
 		text: "",
-		id: makeid(12),
+		id: "",
 	});
 	const [todoItems, setTodoItems] = useState<_TodoItem[]>();
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setTodo({
-			text: e.target.value,
-			id: makeid(12),
-		});
+		setTodo({ ...todo, text: e.target.value });
 	};
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		if (todo && todo.text.length > 0) {
-			setTodoItems((todoItems) => [...(todoItems || []), { ...todo }]);
-			console.log(todo);
+			setTodoItems((todoItems) => [
+				...(todoItems || []),
+				{ ...todo, id: makeid(12) },
+			]);
 			setTodo({ text: "", id: "" });
 		}
+	};
+	const handleDelete = (id: string) => {
+		const updatedList = todoItems?.filter((todo) => todo.id !== id);
+		setTodoItems((todoItems) => (todoItems = updatedList));
 	};
 
 	return (
@@ -52,11 +55,14 @@ function App() {
 					<div className="todo-list">
 						<ul>
 							{todoItems.map(({ id, text }) => (
-								<TodoItem
-									id={id}
-									text={text}
-									key={makeid(12)}
-								/>
+								<li key={id}>
+									<TodoItem
+										id={id}
+										text={text}
+										key={makeid(12)}
+										handleDelete={handleDelete}
+									/>
+								</li>
 							))}
 						</ul>
 					</div>

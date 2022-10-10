@@ -4,12 +4,20 @@ import "./TodoItem.css";
 export interface _TodoItem {
 	text: string;
 	id: string;
+	handleDelete: (id: string) => void;
 }
 
-export const TodoItem = ({ id, text }: _TodoItem): ReactElement => {
+export const TodoItem = ({
+	id,
+	text,
+	handleDelete,
+}: _TodoItem): ReactElement => {
 	return (
-		<li key={id} className="item">
+		<div className="item">
 			<p>{text}</p>
-		</li>
+			<span className="remove" onClick={() => handleDelete(id)}>
+				❌
+			</span>
+		</div>
 	);
 };
